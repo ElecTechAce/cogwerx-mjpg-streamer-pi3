@@ -22,7 +22,8 @@ WORKDIR /usr/src/mjpg-streamer/mjpg-streamer-experimental
 RUN make 
 RUN export LD_LIBRARY_PATH=.
 
-COPY ./cam-binaries/input_raspicam.so /usr/src/mjpg-streamer/mjpg-streamer-experimental
+#changed library from raspicam to uvc for webcams
+COPY ./cam-binaries/input_uvc.so /usr/src/mjpg-streamer/mjpg-streamer-experimental
 COPY ./cam-binaries/*.so /usr/src/mjpg-streamer/mjpg-streamer-experimental/
 
 # Expose port (will also be exposed explicitly during container run)
